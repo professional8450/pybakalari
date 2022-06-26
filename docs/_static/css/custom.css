@@ -1,0 +1,12 @@
+
+b, strong {
+    font-weight: 600 !important;
+}
+
+.classifier {
+    font-style: normal !important;
+}
+
+dt.field-odd, dt.field-even {
+    font-weight: 700 !important;
+}
