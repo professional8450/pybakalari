@@ -63,10 +63,7 @@ html_static_path = ['_static']
 intersphinx_mapping = {
   'py': ('https://docs.python.org/3', None)
 }
-html_sidebars = {
-    "**": [
-    ]
-}
+
 html_css_files = [
     'css/custom.css',
 ]
