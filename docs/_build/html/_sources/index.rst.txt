@@ -3,6 +3,10 @@
 API Documentation
 ======================================
 
+.. toctree::
+    :hidden:
+    :maxdepth: 2
+
 The following page outlines the pybakalari API.
 
 Client
