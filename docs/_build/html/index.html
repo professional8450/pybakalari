@@ -1,1491 +1,311 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API documentation" href="api.html" />
 
-      <title>API Documentation</title>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.06.21"/>
+        <title>pybakalari 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
-          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
-          <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-      
-      <!-- sphinx script_files -->
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-
-      
-      <!-- bundled in js (rollup iife) -->
-      <!-- <script src="_static/theme-vendors.js"></script> -->
-      <script src="_static/theme.js" defer></script>
     
-  <link rel="index" title="Index" href="genindex.html" />
-  <link rel="search" title="Search" href="search.html" /> 
-  </head>
 
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
   <body>
-    <div id="app">
-    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
-  <router-link to="#" class="home-link">
     
-      <span class="site-name">pybakalari</span>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
-  </router-link>
 
-  <div class="links">
-    <navlinks class="can-hide">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
 
 
-    </navlinks>
-  </div>
-</navbar>
-
-      
-      <div class="sidebar-mask" @click="toggleSidebar(false)">
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="#"><div class="brand">pybakalari 1.0.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
       </div>
-        <sidebar @toggle-sidebar="toggleSidebar">
-          
-          <navlinks>
-            
-
-
-
-            
-          </navlinks><div id="searchbox" class="searchbox" role="search">
-  <div class="caption"><span class="caption-text">Quick search</span>
-    <div class="searchformwrapper">
-      <form class="search" action="search.html" method="get">
-        <input type="text" name="q" />
-        <input type="submit" value="Search" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
     </div>
-  </div>
-</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="#api-documentation">api documentation</a></span>
-      </p>
-      <ul class="">
-        
-      </ul>
-    </div>
   
-</div>
-        </sidebar>
-
-      <page>
-          <div class="body-header" role="navigation" aria-label="navigation">
+  <span class="sidebar-brand-text">pybakalari 1.0.0 documentation</span>
   
-  <ul class="breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-    
-    <li>API Documentation</li>
-  </ul>
-  
-
-  <ul class="page-nav">
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
 </ul>
-  
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/example.html">Admonitions</a></li>
+</ul>
+</li>
+</ul>
+
 </div>
-<hr>
-          <div class="content" role="main" v-pre>
-            
-  <section id="api-documentation">
-<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
 </div>
-<p>The following page outlines the pybakalari API.</p>
-<section id="client">
-<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Client">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">route</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that is used to interact with the Bakaláři API.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">api_version</span></code> attribute is set after you call <a class="reference internal" href="#pybakalari.Client.login" title="pybakalari.Client.login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.login()</span></code></a>.</p>
-</div>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>route</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The URL address of the Bakaláři application that you want to use.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Attributes</dt>
-<dd class="field-even"><dl>
-<dt><strong>api_version</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The API version that the Bakaláři server is using.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes the client’s HTTP session.</p>
-</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_absences">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_absences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_absences" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve your absence data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#pybakalari.AbsenceData" title="pybakalari.AbsenceData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsenceData</span></code></a></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_actual_timetable">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_actual_timetable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_actual_timetable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the actual timetable for the current week.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>date</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves the timetable for the week of the date provided.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Day" title="pybakalari.Day"><code class="xref py py-class docutils literal notranslate"><span class="pre">Day</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_all_events">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_all_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_all_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of all events.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>since</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves events before this date. If you do not provide this parameter, it returns all
-events from the current school year.</p>
-</dd>
-<dt><strong>until</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves events until this date.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Event" title="pybakalari.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_api_information">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_api_information</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_api_information" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve information about each API version being used.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.ApiInformation" title="pybakalari.ApiInformation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApiInformation</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_api_v3_information">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_api_v3_information</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_api_v3_information" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve information about the Bakaláři v3 API.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#pybakalari.ApiInformation" title="pybakalari.ApiInformation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApiInformation</span></code></a></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_gdpr_commissioners">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_gdpr_commissioners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_gdpr_commissioners" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of GDPR commissioners.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Commissioner" title="pybakalari.Commissioner"><code class="xref py py-class docutils literal notranslate"><span class="pre">Commissioner</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_homework">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_homework</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_homework" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of your homework.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>since</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves homework before this date. If you do not provide this parameter, it defaults
-to fourteen days before the current date.</p>
-</dd>
-<dt><strong>until</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves homework until this date. If you do not provide this parameter, it defaults
-to one day after the current date.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Homework" title="pybakalari.Homework"><code class="xref py py-class docutils literal notranslate"><span class="pre">Homework</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_marks">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_marks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_marks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves data about your marks for each subject.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.SubjectMarkData" title="pybakalari.SubjectMarkData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubjectMarkData</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_my_events">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_my_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_my_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of your events.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>since</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves events before this date. If you do not provide this parameter, it returns all
-of your events from the current school year.</p>
-</dd>
-<dt><strong>until</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves events until this date.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Event" title="pybakalari.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_new_marks_amount">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_new_marks_amount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_new_marks_amount" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the amount of new marks.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_noticeboard_messages">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_noticeboard_messages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_noticeboard_messages" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves all messages that are pinned to the noticeboard.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Message" title="pybakalari.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_pedagogical_measures">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_pedagogical_measures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_pedagogical_measures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of all pedagogical measures given to you.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.PedagogicalMeasure" title="pybakalari.PedagogicalMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">PedagogicalMeasure</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_permanent_timetable">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_permanent_timetable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_permanent_timetable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the permanent timetable.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Day" title="pybakalari.Day"><code class="xref py py-class docutils literal notranslate"><span class="pre">Day</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_public_events">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_public_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_public_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of public events.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>since</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves events before this date. If you do not provide this parameter, it returns all
-public events from the current school year.</p>
-</dd>
-<dt><strong>until</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves events until this date.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Event" title="pybakalari.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_received_messages">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_received_messages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_received_messages" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves your received messages.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Message" title="pybakalari.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_subjects">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_subjects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_subjects" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve a list of your subjects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_term_marks">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_term_marks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_term_marks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves data about your final marks for each term.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.TermMarkData" title="pybakalari.TermMarkData"><code class="xref py py-class docutils literal notranslate"><span class="pre">TermMarkData</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_timetable_changes">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_timetable_changes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_timetable_changes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of timetable changes.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>since</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves homework before this date. If you do not provide this parameter, it defaults
-to fourteen days before the current date.</p>
-</dd>
-<dt><strong>until</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a>]</span></dt><dd><p>Retrieves homework until this date. If you do not provide this parameter, it defaults
-to one day after the current date.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.Change" title="pybakalari.Change"><code class="xref py py-class docutils literal notranslate"><span class="pre">Change</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_unclosed_homework_count">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_unclosed_homework_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_unclosed_homework_count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the amount of your homework that hasn’t been completed yet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.get_user">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.get_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves your user information.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#pybakalari.User" title="pybakalari.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Client.login">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reauthenticate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Client.login" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logs into the Bakaláři API with the credentials provided.
-Returns the token that the API returned.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>username</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The username to use when logging in.</p>
-</dd>
-<dt><strong>password</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The password to use when logging in.</p>
-</dd>
-<dt><strong>reauthenticate</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span></dt><dd><p>Whether to re-authenticate automatically after the access to the API expires.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></dt><dd></dd>
-</dl>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">BadRequest</span></code></dt><dd><p>The username or password were invalid.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="absence">
-<h2>Absence<a class="headerlink" href="#absence" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.AbsenceData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">AbsenceData</span></span><a class="headerlink" href="#pybakalari.AbsenceData" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that gives you data about your absence.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>percentage_threshold</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The absence percentage threshold.</p>
-</dd>
-<dt><strong>absences</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.AbsenceEntry" title="pybakalari.AbsenceEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsenceEntry</span></code></a>]</span></dt><dd><p>A list of <a class="reference internal" href="#pybakalari.AbsenceEntry" title="pybakalari.AbsenceEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsenceEntry</span></code></a> objects.</p>
-</dd>
-<dt><strong>absences_per_subject</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.AbsencePerSubjectEntry" title="pybakalari.AbsencePerSubjectEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsencePerSubjectEntry</span></code></a>]</span></dt><dd><p>A list of <a class="reference internal" href="#pybakalari.AbsencePerSubjectEntry" title="pybakalari.AbsencePerSubjectEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsencePerSubjectEntry</span></code></a> objects.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.AbsenceEntry">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">AbsenceEntry</span></span><a class="headerlink" href="#pybakalari.AbsenceEntry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents an absence entry.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a></span></dt><dd><p>The date of the absence entry.</p>
-</dd>
-<dt><strong>unsolved</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where the absence has not been resolved yet.</p>
-</dd>
-<dt><strong>ok</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where the absence was marked as ‘ok’.</p>
-</dd>
-<dt><strong>missed</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where the absence was marked as ‘missed’.</p>
-</dd>
-<dt><strong>late</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where you arrived late.</p>
-</dd>
-<dt><strong>soon</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where you left early.</p>
-</dd>
-<dt><strong>school</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where the absence was due to a school event.</p>
-</dd>
-<dt><strong>distance_teaching</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where you attended the lesson remotely.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.AbsencePerSubjectEntry">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">AbsencePerSubjectEntry</span></span><a class="headerlink" href="#pybakalari.AbsencePerSubjectEntry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents an absence entry for a <a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">lesson_count</span></code> attribute represents how many lessons of the
-subject have taken place, not how many lessons you missed.</p>
-</div>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>lesson_count</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The total amount of lessons for the subject.</p>
-</dd>
-<dt><strong>subject</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a></span></dt><dd><p>The absence entry’s subject.</p>
-</dd>
-<dt><strong>base</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons that you missed.</p>
-</dd>
-<dt><strong>late</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where you arrived late.</p>
-</dd>
-<dt><strong>soon</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where you left early.</p>
-</dd>
-<dt><strong>school</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where the absence was due to a school event.</p>
-</dd>
-<dt><strong>distance_teaching</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of lessons where you attended the lesson remotely.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="apiinformation">
-<h2>ApiInformation<a class="headerlink" href="#apiinformation" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.ApiInformation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">ApiInformation</span></span><a class="headerlink" href="#pybakalari.ApiInformation" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that gives you information about the API of the Bakaláři server
-that the <a class="reference internal" href="#pybakalari.Client" title="pybakalari.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> is making requests to.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>api_version</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The API version that is being used.</p>
-</dd>
-<dt><strong>application_version</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The application version that is being used.</p>
-</dd>
-<dt><strong>base_url</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The base URL of the Bakaláři server.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="attachment">
-<h2>Attachment<a class="headerlink" href="#attachment" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Attachment">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Attachment</span></span><a class="headerlink" href="#pybakalari.Attachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a file attachment.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the file.</p>
-</dd>
-<dt><strong>size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The size of the file in bytes.</p>
-</dd>
-<dt><strong>type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The <a class="reference external" href="https://www.iana.org/assignments/media-types/media-types.xhtml">MIME type</a> of the file.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Attachment.download">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Attachment.download" title="Permalink to this definition">¶</a></dt>
-<dd><p>Downloads the attachment and saves it to a file.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>fp</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The path to the folder in which to save the file.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name to use for the file. If not specified, then the name of the attachment is used instead.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="changes">
-<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.ChangeType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">ChangeType</span></span><a class="headerlink" href="#pybakalari.ChangeType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies the type of a <a class="reference internal" href="#pybakalari.Change" title="pybakalari.Change"><code class="xref py py-class docutils literal notranslate"><span class="pre">Change</span></code></a>.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.ChangeType.canceled">
-<span class="sig-name descname"><span class="pre">canceled</span></span><a class="headerlink" href="#pybakalari.ChangeType.canceled" title="Permalink to this definition">¶</a></dt>
-<dd><p>The lesson was canceled.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.ChangeType.added">
-<span class="sig-name descname"><span class="pre">added</span></span><a class="headerlink" href="#pybakalari.ChangeType.added" title="Permalink to this definition">¶</a></dt>
-<dd><p>The lesson was added into the timetable.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.ChangeType.removed">
-<span class="sig-name descname"><span class="pre">removed</span></span><a class="headerlink" href="#pybakalari.ChangeType.removed" title="Permalink to this definition">¶</a></dt>
-<dd><p>The lesson was removed from the timetable.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.ChangeType.room_changed">
-<span class="sig-name descname"><span class="pre">room_changed</span></span><a class="headerlink" href="#pybakalari.ChangeType.room_changed" title="Permalink to this definition">¶</a></dt>
-<dd><p>The room for the lesson was changed.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.ChangeType.substitution">
-<span class="sig-name descname"><span class="pre">substitution</span></span><a class="headerlink" href="#pybakalari.ChangeType.substitution" title="Permalink to this definition">¶</a></dt>
-<dd><p>The teacher for the lesson was changed.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Change">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Change</span></span><a class="headerlink" href="#pybakalari.Change" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a change in the timetable.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>The date of the change.</p>
-</dd>
-<dt><strong>hours:</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The timetable hours that the change affects.</p>
-</dd>
-<dt><strong>type:</strong><span class="classifier"><a class="reference internal" href="#pybakalari.ChangeType" title="pybakalari.ChangeType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChangeType</span></code></a></span></dt><dd><p>The type of the change.</p>
-</dd>
-<dt><strong>description</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The description of the change.</p>
-</dd>
-<dt><strong>time</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The time of the change.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="class">
-<h2>Class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Class">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Class</span></span><a class="headerlink" href="#pybakalari.Class" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři class.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the class.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the class.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name of the class.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="commissioner">
-<h2>Commissioner<a class="headerlink" href="#commissioner" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Commissioner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Commissioner</span></span><a class="headerlink" href="#pybakalari.Commissioner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a GDPR commissioner.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the commissioner.</p>
-</dd>
-<dt><strong>mobile</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The mobile number of the commissioner.</p>
-</dd>
-<dt><strong>phone</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The phone number of the commissioner.</p>
-</dd>
-<dt><strong>email</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The email of the commissioner.</p>
-</dd>
-<dt><strong>web</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The URL of the commissioner’s website.</p>
-</dd>
-<dt><strong>data_box</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The data box address of the commissioner.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="cycle">
-<h2>Cycle<a class="headerlink" href="#cycle" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Cycle">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Cycle</span></span><a class="headerlink" href="#pybakalari.Cycle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři cycle.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the cycle.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the cycle.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name of the cycle.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="events">
-<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.EventTime">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">EventTime</span></span><a class="headerlink" href="#pybakalari.EventTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that represents the time of a <a class="reference internal" href="#pybakalari.Event" title="pybakalari.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>whole_day</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Indicates whether the event is for the entire day or a specific time period.</p>
-</dd>
-<dt><strong>start_time</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>The starting time of the event.</p>
-</dd>
-<dt><strong>end_time</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>The ending time of the event.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.EventType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">EventType</span></span><a class="headerlink" href="#pybakalari.EventType" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that represents the type of a <a class="reference internal" href="#pybakalari.Event" title="pybakalari.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the event type.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the event type.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name of the event type.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Event">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><a class="headerlink" href="#pybakalari.Event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři event.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the event.</p>
-</dd>
-<dt><strong>title</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The title of the event.</p>
-</dd>
-<dt><strong>type</strong><span class="classifier"><a class="reference internal" href="#pybakalari.EventType" title="pybakalari.EventType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventType</span></code></a></span></dt><dd><p>The type of the event.</p>
-</dd>
-<dt><strong>date_changed</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date that represents when the event was last changed.</p>
-</dd>
-<dt><strong>description</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The description of the event.</p>
-</dd>
-<dt><strong>times</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.EventTime" title="pybakalari.EventTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventTime</span></code></a>]</span></dt><dd><p>A list of times that represent when the event will occur.</p>
-</dd>
-<dt><strong>teachers</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Teacher" title="pybakalari.Teacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Teacher</span></code></a>]</span></dt><dd><p>A list of teachers attached to this event.</p>
-</dd>
-<dt><strong>classes</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Class" title="pybakalari.Class"><code class="xref py py-class docutils literal notranslate"><span class="pre">Class</span></code></a>]</span></dt><dd><p>A list of classes attached to this event.</p>
-</dd>
-<dt><strong>rooms</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Room" title="pybakalari.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>]</span></dt><dd><p>A list of rooms attached to this event.</p>
-</dd>
-<dt><strong>students</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Student" title="pybakalari.Student"><code class="xref py py-class docutils literal notranslate"><span class="pre">Student</span></code></a>]</span></dt><dd><p>A list of students attached to this event.</p>
-</dd>
-<dt><strong>note</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The note for the event.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="group">
-<h2>Group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Group">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Group</span></span><a class="headerlink" href="#pybakalari.Group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři group.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the group.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the group.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name of the group.</p>
-</dd>
-<dt><strong>class</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Class" title="pybakalari.Class"><code class="xref py py-class docutils literal notranslate"><span class="pre">Class</span></code></a>]</span></dt><dd><p>The class that the group belongs to.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="homework">
-<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Homework">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Homework</span></span><a class="headerlink" href="#pybakalari.Homework" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři homework.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">date_award</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">date_control</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">date_done</span></code> attributes are only
-filled if the Bakaláři server’s API version is <code class="docutils literal notranslate"><span class="pre">3.13.0</span></code> or lower.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">finished</span></code> attribute is only filled if the Bakaláři server’s
-API version is higher than <code class="docutils literal notranslate"><span class="pre">3.13.0</span></code>.</p>
-</div>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the homework.</p>
-</dd>
-<dt><strong>assigned_at</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date which represents when the homework was assigned.</p>
-</dd>
-<dt><strong>due_at</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date which represents when the homework is due.</p>
-</dd>
-<dt><strong>done</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Indicates whether the homework is done.</p>
-</dd>
-<dt><strong>closed</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Indicates whether the homework has been closed.</p>
-</dd>
-<dt><strong>hour</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>A number that represents the timetable hour that the homework is due in.</p>
-</dd>
-<dt><strong>homework_class</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Class" title="pybakalari.Class"><code class="xref py py-class docutils literal notranslate"><span class="pre">Class</span></code></a></span></dt><dd><p>The class that the homework has been assigned to.</p>
-</dd>
-<dt><strong>group</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Group" title="pybakalari.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>]</span></dt><dd><p>The group that the homework has been assigned to.</p>
-</dd>
-<dt><strong>subject</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a>]</span></dt><dd><p>The homework’s subject.</p>
-</dd>
-<dt><strong>teacher</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Teacher" title="pybakalari.Teacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Teacher</span></code></a>]</span></dt><dd><p>The teacher that assigned the homework.</p>
-</dd>
-<dt><strong>details</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The homework details.</p>
-</dd>
-<dt><strong>notice</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The notice message for the homework.</p>
-</dd>
-<dt><strong>finished</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span></dt><dd><p>Indicates whether the homework has been finished.</p>
-</dd>
-<dt><strong>date_award</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</span></dt><dd><p>?</p>
-</dd>
-<dt><strong>date_control</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</span></dt><dd><p>?</p>
-</dd>
-<dt><strong>date_done</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</span></dt><dd><p>?</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Homework.mark_as_done">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mark_as_done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Homework.mark_as_done" title="Permalink to this definition">¶</a></dt>
-<dd><p>Marks the homework as done.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Homework.mark_as_undone">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mark_as_undone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Homework.mark_as_undone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Marks the homework as undone.</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="messages">
-<h2>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Message">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Message</span></span><a class="headerlink" href="#pybakalari.Message" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři message.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code> attribute does not return raw text.
-It also includes HTML tags which the library does not remove.</p>
-</div>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the message.</p>
-</dd>
-<dt><strong>title</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The title of the message.</p>
-</dd>
-<dt><strong>text</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The text of the message.</p>
-</dd>
-<dt><strong>sent_at</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date representing when the message was sent.</p>
-</dd>
-<dt><strong>attachments</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Attachment" title="pybakalari.Attachment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attachment</span></code></a>]</span></dt><dd><p>A list of attachments that are attached to the message.</p>
-</dd>
-<dt><strong>sender</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Teacher" title="pybakalari.Teacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Teacher</span></code></a></span></dt><dd><p>The sender of the message.</p>
-</dd>
-<dt><strong>relevant_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the relevant person or entity that sent the message.</p>
-</dd>
-<dt><strong>sender_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The type of the person that sent the message.</p>
-</dd>
-<dt><strong>read</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether the message was read.</p>
-</dd>
-<dt><strong>confirmed</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether the message was confirmed.</p>
-</dd>
-<dt><strong>hidden</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether the message is hidden.</p>
-</dd>
-<dt><strong>can_confirm</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether you can confirm the message.</p>
-</dd>
-<dt><strong>can_answer</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether you can answer the message.</p>
-</dd>
-<dt><strong>can_hide</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether you can hide the message.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="marks">
-<h2>Marks<a class="headerlink" href="#marks" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Mark">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Mark</span></span><a class="headerlink" href="#pybakalari.Mark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři mark.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the mark.</p>
-</dd>
-<dt><strong>subject</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a></span></dt><dd><p>The subject that the mark belongs to.</p>
-</dd>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date representing when the mark was given.</p>
-</dd>
-<dt><strong>edited_at</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date representing when the mark was last edited.</p>
-</dd>
-<dt><strong>text</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The text of the mark.</p>
-</dd>
-<dt><strong>weight</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The weight of the mark.</p>
-</dd>
-<dt><strong>is_new</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether the mark is new.</p>
-</dd>
-<dt><strong>is_points</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether the mark uses points instead of regular marks.</p>
-</dd>
-<dt><strong>max_points</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The maximum amount of points you can get for this mark.</p>
-</dd>
-<dt><strong>caption</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The caption of the mark.</p>
-</dd>
-<dt><strong>teacher_id</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The ID of the teacher that gave the mark.</p>
-</dd>
-<dt><strong>type</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The type of the mark.</p>
-</dd>
-<dt><strong>type_note</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The note for the type of the mark.</p>
-</dd>
-<dt><strong>calculated_mark_text</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The calculated mark text.</p>
-</dd>
-<dt><strong>class_rank_text</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The class rank text.</p>
-</dd>
-<dt><strong>points</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span></dt><dd><p>The amount of points you received.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.FinalMark">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">FinalMark</span></span><a class="headerlink" href="#pybakalari.FinalMark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři final mark.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the mark.</p>
-</dd>
-<dt><strong>subject</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a></span></dt><dd><p>The subject that the mark belongs to.</p>
-</dd>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date representing when the mark was given.</p>
-</dd>
-<dt><strong>edited_at</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date representing when the mark was last edited.</p>
-</dd>
-<dt><strong>text</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The text of the mark.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.SubjectMarkData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">SubjectMarkData</span></span><a class="headerlink" href="#pybakalari.SubjectMarkData" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that gives you data about your marks in a specific subject.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>subject</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a></span></dt><dd><p>The subject to which the marks belong.</p>
-</dd>
-<dt><strong>average</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>Your average mark in the subject.</p>
-</dd>
-<dt><strong>temporary_mark</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>Your temporary mark in the subject.</p>
-</dd>
-<dt><strong>subject_note</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The note for the subject.</p>
-</dd>
-<dt><strong>temporary_mark_note</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The note for the temporary mark.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.SubjectMarkData.add_mark">
-<span class="sig-name descname"><span class="pre">add_mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mark</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.SubjectMarkData.add_mark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a mark to the mark data.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>mark</strong><span class="classifier">Union[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, Literal[‘1-, ‘2-’, ‘3-’, ‘4-‘]]</span></dt><dd><p>The mark you want to add.</p>
-</dd>
-<dt><strong>weight</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The weight of the new mark.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.SubjectMarkData.edit_mark">
-<span class="sig-name descname"><span class="pre">edit_mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mark</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.SubjectMarkData.edit_mark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Edits a mark at the given index.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>index</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The index of the mark you want to edit.</p>
-</dd>
-<dt><strong>mark</strong><span class="classifier">Optional[Union[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, Literal[‘1-’, ‘2-’, ‘3-’, ‘4-‘]]]</span></dt><dd><p>The new mark.</p>
-</dd>
-<dt><strong>weight</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span></dt><dd><p>The weight of the edited mark.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a></dt><dd><p>The index of the mark is out of range.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.SubjectMarkData.predict">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.SubjectMarkData.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predicts your average mark.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></dt><dd><p>The average mark that was returned by the API.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.SubjectMarkData.remove_prediction_mark">
-<span class="sig-name descname"><span class="pre">remove_prediction_mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.SubjectMarkData.remove_prediction_mark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes a mark at the given index.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>index</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The index of the mark you want to remove.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.SubjectMarkData.reset_marks">
-<span class="sig-name descname"><span class="pre">reset_marks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.SubjectMarkData.reset_marks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes any changes that were made to the marks.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.TermMarkData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">TermMarkData</span></span><a class="headerlink" href="#pybakalari.TermMarkData" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that gives you data about your final marks in a specific term.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>grade_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the grade.</p>
-</dd>
-<dt><strong>grade</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of the grade.</p>
-</dd>
-<dt><strong>year_in_school</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of the school year.</p>
-</dd>
-<dt><strong>school_year</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The school year of the term data.</p>
-</dd>
-<dt><strong>semester</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The semester of the term data.</p>
-</dd>
-<dt><strong>semester_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the semester.</p>
-</dd>
-<dt><strong>repeated</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether you repeated the term.</p>
-</dd>
-<dt><strong>closed</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether the term is closed.</p>
-</dd>
-<dt><strong>achievement_text</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Unknown</p>
-</dd>
-<dt><strong>marks_average</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The average of your final marks.</p>
-</dd>
-<dt><strong>absent_hours</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The amount of hours that you were absent from.</p>
-</dd>
-<dt><strong>not_excused_hours</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The amount of absent hours that were not excused.</p>
-</dd>
-<dt><strong>certificate_date</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</span></dt><dd><p>The date of the term certificate.</p>
-</dd>
-<dt><strong>marks</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.FinalMark" title="pybakalari.FinalMark"><code class="xref py py-class docutils literal notranslate"><span class="pre">FinalMark</span></code></a>]</span></dt><dd><p>A list of the final marks.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="measures">
-<h2>Measures<a class="headerlink" href="#measures" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.PedagogicalMeasure">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">PedagogicalMeasure</span></span><a class="headerlink" href="#pybakalari.PedagogicalMeasure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři pedagogical measure.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>school_year</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The school year of the pedagogical measure.</p>
-</dd>
-<dt><strong>semester</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">semester</span></code></span></dt><dd><p>The semester of the pedagogical measure.</p>
-</dd>
-<dt><strong>type_id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the type of the pedagogical measure.</p>
-</dd>
-<dt><strong>type_label</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The label of the type of the pedagogical measure.</p>
-</dd>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>A date representing when the pedagogical measure was given.</p>
-</dd>
-<dt><strong>text</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The text of the pedagogical measure.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="room">
-<h2>Room<a class="headerlink" href="#room" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Room">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Room</span></span><a class="headerlink" href="#pybakalari.Room" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři room.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the room.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the room.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name of the room.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="student">
-<h2>Student<a class="headerlink" href="#student" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Student">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Student</span></span><a class="headerlink" href="#pybakalari.Student" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři student.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the student.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the student.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The name of the student.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="subject">
-<h2>Subject<a class="headerlink" href="#subject" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Subject">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Subject</span></span><a class="headerlink" href="#pybakalari.Subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři subject.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the subject.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">str</span></dt><dd><p>The abbreviation of the subject.</p>
-</dd>
-<dt><strong>teacher</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Teacher" title="pybakalari.Teacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Teacher</span></code></a>]</span></dt><dd><p>The teacher for the subject.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pybakalari.Subject.get_lessons">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_lessons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pybakalari.Subject.get_lessons" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list of a subject’s lessons.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt>List[<a class="reference internal" href="#pybakalari.SubjectLessonEntry" title="pybakalari.SubjectLessonEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubjectLessonEntry</span></code></a>]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.SubjectLessonEntry">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">SubjectLessonEntry</span></span><a class="headerlink" href="#pybakalari.SubjectLessonEntry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a lesson entry for a <a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a>.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>The date of the lesson.</p>
-</dd>
-<dt><strong>theme</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The theme of the lesson.</p>
-</dd>
-<dt><strong>note</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The note for the lesson.</p>
-</dd>
-<dt><strong>hour_caption</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The hour caption of the lesson.</p>
-</dd>
-<dt><strong>lesson_label</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The label of the lesson.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="teacher">
-<h2>Teacher<a class="headerlink" href="#teacher" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Teacher">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Teacher</span></span><a class="headerlink" href="#pybakalari.Teacher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři teacher.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">email</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">web</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">school_phone</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">home_phone</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">mobile_phone</span></code>
-attributes are only filled if you’re accessing the <code class="docutils literal notranslate"><span class="pre">teacher</span></code> attribute of a <a class="reference internal" href="#pybakalari.Subject" title="pybakalari.Subject"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subject</span></code></a>
-which was retrieved from <a class="reference internal" href="#pybakalari.Client.get_subjects" title="pybakalari.Client.get_subjects"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.get_subjects()</span></code></a>.</p>
-</div>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the teacher.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the teacher.</p>
-</dd>
-<dt><strong>abbreviation</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The abbreviation of the teacher.</p>
-</dd>
-<dt><strong>email</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The email address of the teacher.</p>
-</dd>
-<dt><strong>web</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The URL of the teacher’s website.</p>
-</dd>
-<dt><strong>school_phone</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The school phone number of the teacher.</p>
-</dd>
-<dt><strong>home_phone</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The home phone number of the teacher.</p>
-</dd>
-<dt><strong>mobile_phone</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The mobile phone number of the teacher.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="timetable">
-<h2>Timetable<a class="headerlink" href="#timetable" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.DayType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">DayType</span></span><a class="headerlink" href="#pybakalari.DayType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies the type of a <a class="reference internal" href="#pybakalari.Day" title="pybakalari.Day"><code class="xref py py-class docutils literal notranslate"><span class="pre">Day</span></code></a>.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.DayType.work_day">
-<span class="sig-name descname"><span class="pre">work_day</span></span><a class="headerlink" href="#pybakalari.DayType.work_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a work day.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.DayType.weekend">
-<span class="sig-name descname"><span class="pre">weekend</span></span><a class="headerlink" href="#pybakalari.DayType.weekend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a weekend day. This day type usually does not appear.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.DayType.celebration">
-<span class="sig-name descname"><span class="pre">celebration</span></span><a class="headerlink" href="#pybakalari.DayType.celebration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a state holiday or other important day.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.DayType.holiday">
-<span class="sig-name descname"><span class="pre">holiday</span></span><a class="headerlink" href="#pybakalari.DayType.holiday" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a holiday.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.DayType.headmaster_day">
-<span class="sig-name descname"><span class="pre">headmaster_day</span></span><a class="headerlink" href="#pybakalari.DayType.headmaster_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a day off given by the school principal.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pybakalari.DayType.undefined">
-<span class="sig-name descname"><span class="pre">undefined</span></span><a class="headerlink" href="#pybakalari.DayType.undefined" title="Permalink to this definition">¶</a></dt>
-<dd><p>Any other type of day. This day type usually does not appear.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Hour">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Hour</span></span><a class="headerlink" href="#pybakalari.Hour" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a timetable hour.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the timetable hour.</p>
-</dd>
-<dt><strong>caption</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The caption of the timetable hour.</p>
-</dd>
-<dt><strong>begin_time</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Represents the time when the hour begins.</p>
-</dd>
-<dt><strong>end_time</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Represents the time when the hour ends.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Lesson">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Lesson</span></span><a class="headerlink" href="#pybakalari.Lesson" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a timetable lesson.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>hour</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Hour" title="pybakalari.Hour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hour</span></code></a></span></dt><dd><p>The hour of the lesson.</p>
-</dd>
-<dt><strong>groups</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Group" title="pybakalari.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>]</span></dt><dd><p>The list of the groups that are assigned to the lesson.</p>
-</dd>
-<dt><strong>teacher</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Teacher" title="pybakalari.Teacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Teacher</span></code></a>]</span></dt><dd><p>The teacher assigned to the lesson.</p>
-</dd>
-<dt><strong>room</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Room" title="pybakalari.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>]</span></dt><dd><p>The room for the lesson.</p>
-</dd>
-<dt><strong>cycles</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Cycle" title="pybakalari.Cycle"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cycle</span></code></a>]</span></dt><dd><p>A list of the lesson’s cycles.</p>
-</dd>
-<dt><strong>homework</strong><span class="classifier">List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>A list of homework IDs that are due on this lesson.</p>
-</dd>
-<dt><strong>change</strong><span class="classifier">Optional[<a class="reference internal" href="#pybakalari.Change" title="pybakalari.Change"><code class="xref py py-class docutils literal notranslate"><span class="pre">Change</span></code></a>]</span></dt><dd><p>The information about the lesson’s change.</p>
-</dd>
-<dt><strong>theme</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The theme of the lesson.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.Day">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">Day</span></span><a class="headerlink" href="#pybakalari.Day" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a timetable day.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>day_of_week</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Represents the number of the day of the week. (1 = Monday, 2 = Tuesday, …)</p>
-</dd>
-<dt><strong>date</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></span></dt><dd><p>The date of the day.</p>
-</dd>
-<dt><strong>day_description</strong><span class="classifier">Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></dt><dd><p>The description of the day.</p>
-</dd>
-<dt><strong>day_type</strong><span class="classifier"><a class="reference internal" href="#pybakalari.DayType" title="pybakalari.DayType"><code class="xref py py-class docutils literal notranslate"><span class="pre">DayType</span></code></a></span></dt><dd><p>The type of the day.</p>
-</dd>
-<dt><strong>lessons</strong><span class="classifier">List[<a class="reference internal" href="#pybakalari.Lesson" title="pybakalari.Lesson"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lesson</span></code></a>]</span></dt><dd><p>A list of lessons for that day.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="user">
-<h2>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pybakalari.User">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pybakalari.</span></span><span class="sig-name descname"><span class="pre">User</span></span><a class="headerlink" href="#pybakalari.User" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a Bakaláři user.</p>
-<dl class="field-list">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>id</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The ID of the user.</p>
-</dd>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the student.</p>
-</dd>
-<dt><strong>school_class</strong><span class="classifier"><a class="reference internal" href="#pybakalari.Class" title="pybakalari.Class"><code class="xref py py-class docutils literal notranslate"><span class="pre">Class</span></code></a></span></dt><dd><p>The class of the user.</p>
-</dd>
-<dt><strong>school_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of the user’s school.</p>
-</dd>
-<dt><strong>user_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The type of the user.</p>
-</dd>
-<dt><strong>user_type_text</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The description of the type.</p>
-</dd>
-<dt><strong>study_year</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The study year of the user.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-</section>
-
-
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
           </div>
-          <div class="page-nav">
-            <div class="inner"><ul class="page-nav">
-</ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2022, professional8450.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="pybakalari-1-0-0">
+<h1>pybakalari 1.0.0<a class="headerlink" href="#pybakalari-1-0-0" title="Permalink to this headline">#</a></h1>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#absence">Absence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#apiinformation">ApiInformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#attachment">Attachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#changes">Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#class">Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#commissioner">Commissioner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#cycle">Cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#group">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#messages">Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#marks">Marks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#measures">Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#room">Room</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#student">Student</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#subject">Subject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#teacher">Teacher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#timetable">Timetable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#user">User</a></li>
+</ul>
+</li>
+</ul>
 </div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/example.html">Admonitions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="api.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">API documentation</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, professional8450
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
             </div>
           </div>
-      </page>
-    </div></div>
-    
-    
-  </body>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">pybakalari 1.0.0</a><ul>
+<li><a class="reference internal" href="#api">API</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
 </html>
