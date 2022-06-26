@@ -86,6 +86,8 @@ class Lesson:
         The hour of the lesson.
     groups : List[:class:`Group`]
         The list of the groups that are assigned to the lesson.
+    subject : Optional[:class:`Subject`]
+        The subject of the lesson.
     teacher : Optional[:class:`Teacher`]
         The teacher assigned to the lesson.
     room : Optional[:class:`Room`]

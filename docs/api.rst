@@ -1,7 +1,7 @@
 .. currentmodule:: pybakalari
 
 ======================================
-API documentation
+API
 ======================================
 
 The following page outlines the pybakalari API.
